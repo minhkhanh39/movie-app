@@ -4,9 +4,7 @@ import imgTemp from "../assets/temp-1.jpg";
 import iconPlayButton from "../assets/play-button.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons/faCircleInfo";
 import { faPlay } from "@fortawesome/free-solid-svg-icons/faPlay";
-import { faInfo } from "@fortawesome/free-solid-svg-icons/faInfo";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Banner = () => {
@@ -41,7 +39,7 @@ const Banner = () => {
             remaining essentially unchanged.
           </p>
           <div className="flex items-center space-x-1">
-            <button className="py-2 px-4 text-black font-bold bg-white text-sm rounded-sm hover:text-[25px] hover:transition-transform duration-500">
+            <button className="py-2 px-4 text-black font-bold bg-white text-sm rounded-sm hover:text-[25px] hover:transition-transform duration-500 ml-2 mr-2">
               <FontAwesomeIcon icon={faPlay} />
               Xem
             </button>
