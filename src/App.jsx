@@ -31,28 +31,34 @@ function App() {
 
   useEffect(() => {
     const fetchMovie = async () => {
-      const options = {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-        },
-      };
-      const url1 =
-        "https://api.themoviedb.org/3/movie/popular?language=vi-VI&page=1";
-      const url2 =
-        "https://api.themoviedb.org/3/movie/top_rated?language=vi-VI&page=1";
+      try {
+        const options = {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+          },
+        };
+        const url1 =
+          "https://api.themoviedb.org/3/movie/popular?language=vi-VI&page=1";
+        const url2 =
+          "https://api.themoviedb.org/3/movie/top_rated?language=vi-VI&page=1";
 
-      const [res1, res2] = await Promise.all([
-        fetch(url1, options),
-        fetch(url2, options),
-      ]);
+        const [res1, res2] = await Promise.all([
+          fetch(url1, options),
+          fetch(url2, options),
+        ]);
 
-      const data1 = await res1.json();
-      const data2 = await res2.json();
+        const data1 = await res1.json();
+        const data2 = await res2.json();
 
-      setMovie(data1.results);
-      setMovieRate(data2.results);
+        setMovie(data1.results ?? []);
+        setMovieRate(data2.results ?? []);
+      } catch (error) {
+        console.error("API Error: ", error);
+        setMovie([]);
+        searchMovie([]);
+      }
     };
     fetchMovie();
   }, []);
