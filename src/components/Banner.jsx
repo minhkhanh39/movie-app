@@ -9,7 +9,14 @@ import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Banner = () => {
   return (
-    <div className="w-full h-[700px] bg-[url(../public/banner.jpg)] bg-center bg-cover bg-no-repeat relative">
+    <div className="w-screen h-[700px] relative overflow-hidden">
+      <video
+        src="/banner.mp4"
+        autoPlay
+        loop
+        muted
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      />
       <div className="absolute w-full h-full top-0 left-0 bg-black opacity-40" />
       <div className="w-full h-full flex items-center justify-center space-x-[30px] p-4">
         <div className="flex flex-col space-y-5 items-baseline w-[50%] z-1">
@@ -17,11 +24,13 @@ const Banner = () => {
             <p className="text-[80px] uppercase font-bold text-red-700 mr-2">
               M
             </p>
-            <p className="text-white uppercase text-[30px]">S e r i e s</p>
+            <p className="text-white uppercase text-[30px]">S E R I E S</p>
           </div>
 
           <div className="flex flex-col space-y-4">
-            <h2 className="text-white text-[40px] font-bold">Marvel Endgame</h2>
+            <h2 className="text-white text-[40px] font-bold">
+              The Amazing Spider Man
+            </h2>
           </div>
           <div className="flex items-center space-x-3">
             <img src={iconRating} alt="rating" className="w-8 h-8" />
